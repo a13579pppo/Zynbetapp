@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZynBet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>ZynBet - Bet on the Future</h1>
+    <nav>
+      <ul>
+        <li onclick="navigate('store')">Gift Store</li>
+        <li onclick="navigate('leaderboard')">Leaderboard</li>
+        <li onclick="navigate('bet')">Bet Now</li>
+        <li onclick="navigate('wallet')">Wallet</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="store" class="tab active">Welcome to the Gift Store</section>
+    <section id="leaderboard" class="tab">Leaderboard coming soon...</section>
+    <section id="bet" class="tab">Place your bets here...</section>
+    <section id="wallet" class="tab">Connect your Tonkeeper wallet</section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
