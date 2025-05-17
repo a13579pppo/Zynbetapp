@@ -1,117 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZynBet | Trend Betting on TON</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZynBet | NFT Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
   <style>
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-      color: #fff;
-    }
-    header {
-      padding: 20px;
-      background-color: rgba(0,0,0,0.3);
-      text-align: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    }
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      background: #00bcd4;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #00acc1;
-    }
-    .section {
-      margin-top: 30px;
-    }
-    .section h2 {
-      font-family: 'Orbitron', sans-serif;
-      border-bottom: 2px solid #00bcd4;
-      padding-bottom: 10px;
-    }
-    .wallet-info {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.07);
-      padding: 15px;
-      border-radius: 10px;
-    }
-    .nft-gallery img {
-      width: 80px;
-      margin: 10px;
-      border-radius: 12px;
-      transition: transform 0.2s;
-    }
-    .nft-gallery img:hover {
-      transform: scale(1.1);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
   </style>
 </head>
-<body>
-  <header>ZynBet - Bet on Trends, Earn TON</header>
+<body class="bg-gray-100">
+  <div class="max-w-6xl mx-auto py-6 px-4">
+    <header class="flex justify-between items-center mb-8">
+      <h1 class="text-3xl font-bold text-blue-700">ZynBet NFT Store</h1>
+      <div id="ton-connect"></div>
+    </header><nav class="mb-6">
+  <ul class="flex space-x-4 text-lg font-medium">
+    <li><a href="#store" class="text-blue-600 hover:underline">Store</a></li>
+    <li><a href="#leaderboard" class="text-blue-600 hover:underline">Leaderboard</a></li>
+    <li><a href="#bet" class="text-blue-600 hover:underline">Bet</a></li>
+    <li><a href="#profile" class="text-blue-600 hover:underline">Profile</a></li>
+  </ul>
+</nav>
 
-  <div class="container">
-    <div class="section">
-      <h2>Connect Your Tonkeeper Wallet</h2>
-      <button class="btn" onclick="connectWallet()">Connect Wallet</button>
-      <div id="walletInfo" class="wallet-info" style="display:none;"></div>
+<section id="store" class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">Buy Your Favorite NFT Gift</h2>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow p-4">
+      <img src="/images/fire_sword.png" alt="Fire Sword" class="mb-3 rounded" />
+      <h3 class="text-xl font-bold">Fire Sword</h3>
+      <p class="text-sm text-gray-500">Category: Fantasy</p>
+      <p class="text-lg font-semibold mt-2">0.45 TON</p>
+      <button onclick="buyNFT('fire_sword')" class="mt-3 bg-blue-600 text-white py-1 px-4 rounded hover:bg-blue-700">Buy</button>
     </div>
-
-    <div class="section">
-      <h2>Top Trend Bets</h2>
-      <ul>
-        <li>Will Bitcoin hit $80k this week?</li>
-        <li>Will Elon Musk mention DOGE?</li>
-        <li>Is TON going to be top 5 crypto?</li>
-      </ul>
+    <div class="bg-white rounded-xl shadow p-4">
+      <img src="/images/crown_king.png" alt="Royal Crown" class="mb-3 rounded" />
+      <h3 class="text-xl font-bold">Royal Crown</h3>
+      <p class="text-sm text-gray-500">Category: Classic</p>
+      <p class="text-lg font-semibold mt-2">0.48 TON</p>
+      <button onclick="buyNFT('royal_crown')" class="mt-3 bg-blue-600 text-white py-1 px-4 rounded hover:bg-blue-700">Buy</button>
     </div>
-
-    <div class="section">
-      <h2>Your NFT Collection</h2>
-      <div class="nft-gallery">
-        <img src="https://i.ibb.co/ChyCTsc/nft1.png" alt="NFT 1">
-        <img src="https://i.ibb.co/V38vKKk/nft2.png" alt="NFT 2">
-        <img src="https://i.ibb.co/1TvFw2f/nft3.png" alt="NFT 3">
-      </div>
-    </div>
+    <!-- More items -->
   </div>
+</section>
 
-  <script>
-    async function connectWallet() {
-      try {
-        if (!window.ton) {
-          alert("Please open this site inside Tonkeeper or Telegram WebApp.");
-          return;
-        }
+<section id="leaderboard" class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">Top Bettors</h2>
+  <table class="w-full text-left bg-white rounded-xl shadow">
+    <thead>
+      <tr class="bg-blue-100">
+        <th class="py-2 px-4">Rank</th>
+        <th class="py-2 px-4">Username</th>
+        <th class="py-2 px-4">Points</th>
+      </tr>
+    </thead>
+    <tbody id="leaderboard-body">
+      <tr><td class="py-2 px-4">1</td><td class="py-2 px-4">@cryptoKing</td><td class="py-2 px-4">1520</td></tr>
+      <!-- More rows -->
+    </tbody>
+  </table>
+</section>
 
-        const result = await window.ton.request("ton_connect", []);
-        const walletInfo = document.getElementById("walletInfo");
-        walletInfo.style.display = "block";
-        walletInfo.innerText = "Wallet Connected: " + JSON.stringify(result);
-      } catch (error) {
-        alert("Connection failed: " + error.message);
-      }
+<section id="bet" class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">Place a Bet</h2>
+  <form id="bet-form" class="bg-white rounded-xl shadow p-4">
+    <label class="block mb-2 font-medium">Your Prediction</label>
+    <input type="text" name="prediction" required class="w-full border px-3 py-2 mb-4 rounded" />
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Submit Bet</button>
+  </form>
+</section>
+
+<section id="profile" class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">Your Profile</h2>
+  <div class="bg-white p-4 rounded-xl shadow">
+    <p><strong>Telegram ID:</strong> <span id="telegram-id">@example_user</span></p>
+    <p><strong>Owned NFTs:</strong></p>
+    <ul id="nft-list" class="list-disc ml-6">
+      <li>Fire Sword</li>
+      <!-- More NFTs -->
+    </ul>
+  </div>
+</section>
+
+  </div>  <script>
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      manifestUrl: 'https://<YOUR_DOMAIN>/tonconnect-manifest.json',
+      buttonRootId: 'ton-connect'
+    });
+
+    function buyNFT(nftId) {
+      const tx = {
+        validUntil: Math.floor(Date.now() / 1000) + 360,
+        messages: [
+          {
+            address: 'UQBbDbfN09WPh5vbQwuQNwAYi_GLhSo2MXF1-MK8m002Pixc',
+            amount: nftId === 'fire_sword' ? '450000000' : '480000000', // in nanoTON
+            payload: btoa(nftId)
+          }
+        ]
+      };
+      tonConnectUI.sendTransaction(tx);
     }
-  </script>
-</body>
+  </script></body>
 </html>
