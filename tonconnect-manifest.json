@@ -1,8 +1,0 @@
-{
-  "manifest_version": "1",
-  "name": "ZynBet",
-  "description": "ZynBet is a blockchain-powered trend betting mini-app with NFT rewards.",
-  "icons": ["https://i.ibb.co/2WVmQRM/zynbet-icon.png"],
-  "url": "https://zynbetapp.github.io",
-  "bridge_url": "https://bridge.tonapi.io/bridge"
-}
