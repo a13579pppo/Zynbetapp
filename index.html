@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZynBet App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@tonconnect/sdk@latest"></script>
+</head>
+<body>
+    <header>
+        <h1>ZynBet</h1>
+        <nav>
+            <button onclick="navigate('dashboard')">Dashboard</button>
+            <button onclick="navigate('bets')">Bet</button>
+            <button onclick="navigate('gifts')">NFT Gifts</button>
+            <button onclick="navigate('wallet')">Wallet</button>
+        </nav>
+    </header>
+    <main id="content">
+        <section id="dashboard" class="active">
+            <h2>Your Dashboard</h2>
+            <p>Welcome to ZynBet. View your rewards, rank, and referrals.</p>
+        </section>
+        <section id="bets">
+            <h2>Place a Bet</h2>
+            <p>Coming soon: Bet on trends with TON!</p>
+        </section>
+        <section id="gifts">
+            <h2>Buy NFT Gifts</h2>
+            <p>Browse and buy decorative NFT gifts with your TON wallet.</p>
+        </section>
+        <section id="wallet">
+            <h2>Wallet Connection</h2>
+            <button id="connect-button">Connect Tonkeeper</button>
+            <p id="wallet-address"></p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
