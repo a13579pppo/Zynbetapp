@@ -1,25 +1,102 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZynBet</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZynBet | Bet on Trends</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: white;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #1e1e2f;
+      font-size: 1.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background: #292947;
+      padding: 10px;
+    }
+    nav a {
+      color: cyan;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    .card {
+      background: #202040;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .button {
+      background: cyan;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .nft-gallery img {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border-radius: 12px;
+      border: 2px solid cyan;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>ZynBet</h1>
-    <nav>
-      <a href="store.html">NFT Store</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="bet.html">Bet</a>
-      <a href="profile.html">Profile</a>
-    </nav>
-  </header>
-  <main>
-    <h2>Welcome to ZynBet</h2>
-    <p>Bet on trends, earn NFTs, and climb the leaderboard.</p>
-  </main>
+  <header>ZynBet - Bet on Trends, Earn TON</header>  <nav>
+    <a href="#wallet">Wallet</a>
+    <a href="#bets">Bet</a>
+    <a href="#nfts">NFTs</a>
+    <a href="#ranking">Ranking</a>
+  </nav>  <section id="wallet">
+    <div class="card">
+      <h2>Connect Your Tonkeeper Wallet</h2>
+      <button class="button" onclick="alert('Tonkeeper connection coming soon!')">Connect Wallet</button>
+    </div>
+  </section>  <section id="bets">
+    <div class="card">
+      <h2>Top Trend Bets</h2>
+      <ul>
+        <li>Will Bitcoin hit $80k this week?</li>
+        <li>Will Elon Musk mention DOGE?</li>
+        <li>Is TON going to be top 5 crypto?</li>
+      </ul>
+      <button class="button">Place Your Bet</button>
+    </div>
+  </section>  <section id="nfts">
+    <div class="card">
+      <h2>Your NFT Collection</h2>
+      <div class="nft-gallery">
+        <img src="https://via.placeholder.com/100x100?text=NFT+1" alt="NFT 1">
+        <img src="https://via.placeholder.com/100x100?text=NFT+2" alt="NFT 2">
+        <img src="https://via.placeholder.com/100x100?text=NFT+3" alt="NFT 3">
+      </div>
+    </div>
+    <div class="card">
+      <h2>Buy New NFTs</h2>
+      <button class="button">Enter Store</button>
+    </div>
+  </section>  <section id="ranking">
+    <div class="card">
+      <h2>Top Bettors</h2>
+      <ol>
+        <li>@CryptoMaster - 124 wins</li>
+        <li>@ZynWarrior - 117 wins</li>
+        <li>@TonChamp - 111 wins</li>
+      </ol>
+    </div>
+  </section>
 </body>
 </html>
