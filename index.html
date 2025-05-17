@@ -1,102 +1,115 @@
-<!DOCTYPE html><html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZynBet | Bet on Trends</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <title>ZynBet | Bet on Trends, Win NFTs</title>
+  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <style>
     body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      background: #0d0d0d;
       color: white;
+      font-family: 'Segoe UI', sans-serif;
     }
-    header {
+    .section {
+      padding: 60px 20px;
+    }
+    .navbar {
+      background-color: #111;
+    }
+    .nft-card {
+      background: #1f1f1f;
+      border-radius: 16px;
       padding: 20px;
-      text-align: center;
-      background-color: #1e1e2f;
-      font-size: 1.5rem;
-    }
-    nav {
-      display: flex;
-      justify-content: space-around;
-      background: #292947;
-      padding: 10px;
-    }
-    nav a {
-      color: cyan;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 20px;
-    }
-    .card {
-      background: #202040;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-    .button {
-      background: cyan;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .nft-gallery img {
-      width: 100px;
-      height: 100px;
       margin: 10px;
+      text-align: center;
+      box-shadow: 0 0 20px #00f0ff33;
+    }
+    .ton-btn {
+      background: #00f0ff;
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+    }
+    .tab-content {
+      background-color: #1b1b1b;
+      padding: 20px;
       border-radius: 12px;
-      border: 2px solid cyan;
     }
   </style>
-</head>
-<body>
-  <header>ZynBet - Bet on Trends, Earn TON</header>  <nav>
-    <a href="#wallet">Wallet</a>
-    <a href="#bets">Bet</a>
-    <a href="#nfts">NFTs</a>
-    <a href="#ranking">Ranking</a>
-  </nav>  <section id="wallet">
-    <div class="card">
-      <h2>Connect Your Tonkeeper Wallet</h2>
-      <button class="button" onclick="alert('Tonkeeper connection coming soon!')">Connect Wallet</button>
-    </div>
-  </section>  <section id="bets">
-    <div class="card">
-      <h2>Top Trend Bets</h2>
-      <ul>
-        <li>Will Bitcoin hit $80k this week?</li>
-        <li>Will Elon Musk mention DOGE?</li>
-        <li>Is TON going to be top 5 crypto?</li>
-      </ul>
-      <button class="button">Place Your Bet</button>
-    </div>
-  </section>  <section id="nfts">
-    <div class="card">
-      <h2>Your NFT Collection</h2>
-      <div class="nft-gallery">
-        <img src="https://via.placeholder.com/100x100?text=NFT+1" alt="NFT 1">
-        <img src="https://via.placeholder.com/100x100?text=NFT+2" alt="NFT 2">
-        <img src="https://via.placeholder.com/100x100?text=NFT+3" alt="NFT 3">
+</head><body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ZynBet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#shop">NFT Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#leaderboard">Leaderboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bets">Betting</a></li>
+          <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
+        </ul>
       </div>
     </div>
-    <div class="card">
-      <h2>Buy New NFTs</h2>
-      <button class="button">Enter Store</button>
+  </nav>  <section class="section" id="shop">
+    <div class="container">
+      <h2>NFT Gift Shop</h2>
+      <div class="row">
+        <div class="col-md-4 nft-card">
+          <img src="https://via.placeholder.com/150" alt="NFT 1" class="img-fluid">
+          <h5>Samurai Gift</h5>
+          <p>Decorate your profile with warrior vibes.</p>
+          <button class="ton-btn" onclick="buyNFT('samurai')">Buy for 0.5 TON</button>
+        </div>
+        <div class="col-md-4 nft-card">
+          <img src="https://via.placeholder.com/150" alt="NFT 2" class="img-fluid">
+          <h5>Pixel Star</h5>
+          <p>Retro pixel gift for gamers.</p>
+          <button class="ton-btn" onclick="buyNFT('pixel')">Buy for 0.5 TON</button>
+        </div>
+      </div>
     </div>
-  </section>  <section id="ranking">
-    <div class="card">
+  </section>  <section class="section" id="leaderboard">
+    <div class="container">
       <h2>Top Bettors</h2>
-      <ol>
-        <li>@CryptoMaster - 124 wins</li>
-        <li>@ZynWarrior - 117 wins</li>
-        <li>@TonChamp - 111 wins</li>
-      </ol>
+      <div class="tab-content">
+        <ul>
+          <li>@tonplayer1 – 25 wins</li>
+          <li>@betmaster21 – 19 wins</li>
+          <li>@cryptofox – 17 wins</li>
+        </ul>
+      </div>
     </div>
-  </section>
-</body>
-</html>
+  </section>  <section class="section" id="bets">
+    <div class="container">
+      <h2>Live Betting</h2>
+      <p>Join daily trend bets. Predict outcomes and win TON!</p>
+      <div class="tab-content">
+        <p><strong>Example:</strong> Will $TON price rise above $7 today?</p>
+        <button class="ton-btn">Bet Yes (0.1 TON)</button>
+        <button class="ton-btn">Bet No (0.1 TON)</button>
+      </div>
+    </div>
+  </section>  <section class="section" id="profile">
+    <div class="container">
+      <h2>Your Profile</h2>
+      <p>Connected Wallet: <span id="wallet-address">Not connected</span></p>
+      <div class="tab-content">
+        <p>Your owned NFTs will show here after purchase.</p>
+        <div id="nft-display"></div>
+      </div>
+    </div>
+  </section>  <script>
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      manifestUrl: "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/zynbet-tonconnect/main/tonconnect-manifest.json",
+      buttonRootId: "wallet-address"
+    });
+
+    function buyNFT(type) {
+      alert('Redirecting to Tonkeeper...');
+      // Integrate Tonkeeper payment request here
+    }
+  </script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script></body></html>
