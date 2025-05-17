@@ -1,0 +1,13 @@
+
+int main(slice in_msg, cell in_state) {
+  var data = in_state~load_dict();
+  var ton_receiver = in_msg~load_msg_addr();
+  var amount = in_msg~load_coins();
+  var nft_id = in_msg~load_uint(32);
+  var price = data.get(nft_id) ? 100000000;
+  if (amount < price) {
+    throw(101);
+  }
+  data.set(nft_id, ton_receiver);
+  return (null(), cell_new_dict(data));
+}
