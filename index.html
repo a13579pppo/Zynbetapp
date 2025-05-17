@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZynBet | Trend Betting on TON</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+    }
+    header {
+      padding: 20px;
+      background-color: rgba(0,0,0,0.3);
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #00bcd4;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #00acc1;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .section h2 {
+      font-family: 'Orbitron', sans-serif;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 10px;
+    }
+    .wallet-info {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.07);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .nft-gallery img {
+      width: 80px;
+      margin: 10px;
+      border-radius: 12px;
+      transition: transform 0.2s;
+    }
+    .nft-gallery img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header>ZynBet - Bet on Trends, Earn TON</header>
+
+  <div class="container">
+    <div class="section">
+      <h2>Connect Your Tonkeeper Wallet</h2>
+      <button class="btn" onclick="connectWallet()">Connect Wallet</button>
+      <div id="walletInfo" class="wallet-info" style="display:none;"></div>
+    </div>
+
+    <div class="section">
+      <h2>Top Trend Bets</h2>
+      <ul>
+        <li>Will Bitcoin hit $80k this week?</li>
+        <li>Will Elon Musk mention DOGE?</li>
+        <li>Is TON going to be top 5 crypto?</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Your NFT Collection</h2>
+      <div class="nft-gallery">
+        <img src="https://i.ibb.co/ChyCTsc/nft1.png" alt="NFT 1">
+        <img src="https://i.ibb.co/V38vKKk/nft2.png" alt="NFT 2">
+        <img src="https://i.ibb.co/1TvFw2f/nft3.png" alt="NFT 3">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function connectWallet() {
+      try {
+        if (!window.ton) {
+          alert("Please open this site inside Tonkeeper or Telegram WebApp.");
+          return;
+        }
+
+        const result = await window.ton.request("ton_connect", []);
+        const walletInfo = document.getElementById("walletInfo");
+        walletInfo.style.display = "block";
+        walletInfo.innerText = "Wallet Connected: " + JSON.stringify(result);
+      } catch (error) {
+        alert("Connection failed: " + error.message);
+      }
+    }
+  </script>
+</body>
+</html>
